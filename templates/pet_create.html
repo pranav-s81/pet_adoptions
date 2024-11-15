@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mb-4">Add New Pet</h2>
+<div class="card p-4 shadow-sm">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100">Save Pet</button>
+    </form>
+</div>
+{% endblock %}

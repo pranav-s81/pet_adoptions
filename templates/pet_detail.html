@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mb-4">{{ pet.name }}</h2>
+<div class="card shadow-sm">
+    {% if pet.image %}
+    <img src="{{ pet.image.url }}" class="card-img-top" alt="{{ pet.name }}">
+    {% else %}
+    <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="No Image">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">Breed: {{ pet.breed }}</h5>
+        <p><strong>Age:</strong> {{ pet.age }} years</p>
+        <p><strong>Description:</strong> {{ pet.description }}</p>
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'pet_update' pet.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'pet_delete' pet.pk %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'pet_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
